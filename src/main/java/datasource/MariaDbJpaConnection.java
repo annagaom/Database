@@ -2,6 +2,8 @@ package datasource;
 
 import jakarta.persistence.*;
 
+import static jakarta.persistence.Persistence.createEntityManagerFactory;
+
 public class MariaDbJpaConnection {
 
     private static EntityManagerFactory emf = null;
@@ -12,7 +14,7 @@ public class MariaDbJpaConnection {
 
         if (em==null) {
             if (emf==null) {
-                emf = Persistence.createEntityManagerFactory("CompanyMariaDbUnit");
+                emf = createEntityManagerFactory("CompanyMariaDbUnit");
             }
             em = emf.createEntityManager();
         }
